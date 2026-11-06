@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="theme-color" content="#FF5A5F">
+  <title>{% block title %}TomatoCare AI - Deteksi Penyakit Daun Tomat Cerdas{% endblock %}</title>
+
+  <!-- Google Fonts: Fredoka & Quicksand -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+
+  <!-- Favicon Tomat -->
+  <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='img/mascot/tomy-happy.svg') }}">
+</head>
+<body>
+
+<div class="app-wrapper">
+
+  <!-- ==============================================
+       SIDEBAR DESKTOP
+       ============================================== -->
+  <aside class="sidebar">
+    <div class="sidebar-brand">
+      <img src="{{ url_for('static', filename='img/mascot/tomy-happy.svg') }}" alt="TomatoCare AI" class="brand-icon">
+      <div class="brand-text">
+        <h2>TomatoCare</h2>
+        <span>AI Leaf Doctor</span>
+      </div>
+    </div>
+
+    <!-- Menu Navigasi Desktop -->
+    <ul class="nav-menu">
+      <li>
+        <a href="{{ url_for('index') }}" class="nav-link {% if active_page == 'home' %}active{% endif %}">
+          <span class="nav-icon-box box-home">
+            <svg class="lucide-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/>
+              <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            </svg>
+          </span>
+          <span class="nav-label">Beranda</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('detect_page') }}" class="nav-link {% if active_page == 'detect' %}active{% endif %}">
+          <span class="nav-icon-box box-detect">
+            <svg class="lucide-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 7V5a2 2 0 0 1 2-2h2"/>
+              <path d="M17 3h2a2 2 0 0 1 2 2v2"/>
+              <path d="M21 17v2a2 2 0 0 1-2 2h-2"/>
+              <path d="M7 21H5a2 2 0 0 1-2-2v-2"/>
+              <circle cx="12" cy="12" r="3"/>
+              <path d="m16 16-1.9-1.9"/>
+            </svg>
+          </span>
+          <span class="nav-label">Deteksi Foto</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('realtime_page') }}" class="nav-link {% if active_page == 'realtime' %}active{% endif %}">
+          <span class="nav-icon-box box-realtime">
+            <svg class="lucide-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
+              <circle cx="12" cy="13" r="3"/>
+            </svg>
+          </span>
+          <span class="nav-label">Kamera Real-Time</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('encyclopedia_page') }}" class="nav-link {% if active_page == 'encyclopedia' %}active{% endif %}">
+          <span class="nav-icon-box box-encyclopedia">
+            <svg class="lucide-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+              <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+            </svg>
+          </span>
+          <span class="nav-label">Ensiklopedia 9 Kelas</span>
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('about_page') }}" class="nav-link {% if active_page == 'about' %}active{% endif %}">
+          <span class="nav-icon-box box-about">
+            <svg class="lucide-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 16v-4"/>
+              <path d="M12 8h.01"/>
+            </svg>
+          </span>
+          <span class="nav-label">Tentang Proyek</span>
+        </a>
+      </li>
+    </ul>
+
+    <!-- Kartu Mini Maskot di Sidebar -->
+    <div class="sidebar-mascot-card">
+      <img src="{{ url_for('static', filename='img/mascot/tomy-happy.svg') }}" alt="Tomy" class="sidebar-mascot-img">
+      <p><strong>Hai, aku Tomy!</strong><br>Asisten tanaman tomatmu.</p>
+      <div class="model-pill">
+        <span class="pulse-dot"></span>
+        <span>YOLOv8n Siap</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ==============================================
+       AREA KONTEN UTAMA
+       ============================================== -->
+  <div class="main-wrapper">
+
+    <!-- Top Navbar Khusus Mobile -->
+    <header class="top-navbar-mobile">
+      <a href="{{ url_for('index') }}" class="mobile-brand">
+        <img src="{{ url_for('static', filename='img/mascot/tomy-happy.svg') }}" alt="Tomy" class="mobile-brand-icon">
+        <div>
+          <h2>TomatoCare AI</h2>
+          <span>Deteksi 9 Penyakit Daun</span>
+        </div>
+      </a>
+      <div class="mobile-header-status">
+        <div class="model-pill">
+          <span class="pulse-dot"></span>
+          <span>CPU Ready</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Konten Dinamis Halaman -->
+    <main class="content-container">
+      {% block content %}{% endblock %}
+
+      <!-- Catatan Disclaimer Edukatif -->
+      <section class="disclaimer-card">
+        <span class="icon-box icon-box-sm icon-box-leaf" style="margin-right: 0.35rem;">
+          <svg class="lucide-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M7 20h10"/><path d="M10 20c5.5-2.5.8-6.4 3-13"/><path d="M9.5 9.4c1.1.8 1.8 2.2 2.3 3.7-2 .4-3.5.4-4.8-.3-1.2-.6-2.3-1.9-3-4.2 2.8-.5 4.4 0 5.5.8z"/><path d="M14.1 6a7 7 0 0 0-1.1 4c1.9-.1 3.3-.6 4.3-1.4 1-1 1.6-2.3 1.7-4.6-2.7.1-4 1-4.9 2z"/>
+          </svg>
+        </span>
+        <p class="disclaimer-text">
+          <strong>Catatan Edukatif Agronomi:</strong> {{ disclaimer }}
+        </p>
+      </section>
+    </main>
+
+    <!-- Bottom Navigation Bar Khusus Smartphone (Android Chrome) -->
+    <nav class="bottom-nav-mobile" aria-label="Navigasi Bawah">
+      <a href="{{ url_for('index') }}" class="bottom-nav-item {% if active_page == 'home' %}active{% endif %}">
+        <span class="nav-icon-box box-home">
+          <svg class="lucide-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/>
+            <path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          </svg>
+        </span>
+        <span class="b-nav-label">Beranda</span>
+      </a>
+      <a href="{{ url_for('detect_page') }}" class="bottom-nav-item {% if active_page == 'detect' %}active{% endif %}">
+        <span class="nav-icon-box box-detect">
+          <svg class="lucide-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 7V5a2 2 0 0 1 2-2h2"/>
+            <path d="M17 3h2a2 2 0 0 1 2 2v2"/>
+            <path d="M21 17v2a2 2 0 0 1-2 2h-2"/>
+            <path d="M7 21H5a2 2 0 0 1-2-2v-2"/>
+            <circle cx="12" cy="12" r="3"/>
+            <path d="m16 16-1.9-1.9"/>
+          </svg>
+        </span>
+        <span class="b-nav-label">Deteksi</span>
+      </a>
+      <a href="{{ url_for('realtime_page') }}" class="bottom-nav-item {% if active_page == 'realtime' %}active{% endif %}">
+        <span class="nav-icon-box box-realtime">
+          <svg class="lucide-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/>
+            <circle cx="12" cy="13" r="3"/>
+          </svg>
+        </span>
+        <span class="b-nav-label">Kamera</span>
+      </a>
+      <a href="{{ url_for('encyclopedia_page') }}" class="bottom-nav-item {% if active_page == 'encyclopedia' %}active{% endif %}">
+        <span class="nav-icon-box box-encyclopedia">
+          <svg class="lucide-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+          </svg>
+        </span>
+        <span class="b-nav-label">Katalog</span>
+      </a>
+      <a href="{{ url_for('about_page') }}" class="bottom-nav-item {% if active_page == 'about' %}active{% endif %}">
+        <span class="nav-icon-box box-about">
+          <svg class="lucide-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 16v-4"/>
+            <path d="M12 8h.01"/>
+          </svg>
+        </span>
+        <span class="b-nav-label">Tentang</span>
+      </a>
+    </nav>
+
+  </div>
+</div>
+
+<!-- ==============================================
+     MODAL BANTUAN KAMERA WEBRTC
+     ============================================== -->
+<div class="modal-backdrop" id="cameraHelpModal">
+  <div class="modal-2d">
+    <button class="modal-close-btn" onclick="closeModal('cameraHelpModal')">&times;</button>
+    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+      <img src="{{ url_for('static', filename='img/mascot/tomy-camera.svg') }}" style="width: 58px; height: 58px;" alt="Tomy Camera">
+      <div>
+        <h3 style="font-size: 1.35rem;">Panduan Izin Kamera HP</h3>
+        <p style="font-size: 0.88rem; color: var(--color-navy-muted);">Mengaktifkan kamera di Google Chrome Android</p>
+      </div>
+    </div>
+    <div style="font-size: 0.95rem; line-height: 1.6; color: var(--color-navy);">
+      <p style="margin-bottom: 0.75rem;">
+        Standar keamanan browser modern mewajibkan koneksi <strong>HTTPS</strong> atau <strong>localhost</strong> untuk mengakses kamera WebRTC:
+      </p>
+      <ol style="padding-left: 1.25rem; margin-bottom: 1rem;">
+        <li style="margin-bottom: 0.5rem;">
+          <strong>Di Laptop / Desktop:</strong> Buka tautan lokal <code>http://127.0.0.1:5000</code> atau <code>http://localhost:5000</code>. Kamera langsung diizinkan.
+        </li>
+        <li style="margin-bottom: 0.5rem;">
+          <strong>Di Ponsel Android via Wi-Fi:</strong> Jika membuka lewat IP lokal (misal <code>http://192.168.x.x:5000</code>):
+          <br>• Buka tab baru di Chrome HP: <code>chrome://flags/#unsafely-treat-insecure-origin-as-secure</code>
+          <br>• Masukkan alamat IP komputer (contoh: <code>http://192.168.1.10:5000</code>) dan pilih <strong>Enabled</strong>.
+          <br>• Muat ulang Chrome.
+        </li>
+        <li>
+          <strong>Alternatif Praktis di HP:</strong> Anda juga dapat menggunakan halaman <strong>Deteksi Foto</strong> yang langsung membuka aplikasi kamera bawaan HP tanpa kendala perizinan WebRTC.
+        </li>
+      </ol>
+    </div>
+    <div style="text-align: right; margin-top: 1.25rem;">
+      <button class="btn btn-tomato" onclick="closeModal('cameraHelpModal')">
+        <svg class="lucide-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/>
+        </svg>
+        <span>Saya Mengerti</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Script Dasar -->
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% block scripts %}{% endblock %}
+
+</body>
+</html>

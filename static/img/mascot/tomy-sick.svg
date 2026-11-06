@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%">
+  <!-- Tomy Sick / Concerned (Maskot Peringatan Penyakit) -->
+  <defs>
+    <filter id="shadow-sick" x="-5%" y="-5%" width="115%" height="115%">
+      <feDropShadow dx="3" dy="3" stdDeviation="0" flood-color="#2B2D42" flood-opacity="1" />
+    </filter>
+  </defs>
+
+  <!-- Tubuh Tomat Merah Agak Jingga dengan Plester -->
+  <circle cx="100" cy="115" r="70" fill="#FF6B6B" stroke="#2B2D42" stroke-width="4" filter="url(#shadow-sick)" />
+
+  <!-- Plester Luka Mini di Pipi -->
+  <g transform="translate(115, 85) rotate(25)">
+    <rect x="-14" y="-7" width="28" height="14" rx="3" fill="#FFEAA7" stroke="#2B2D42" stroke-width="2.5" />
+    <circle cx="0" cy="0" r="2" fill="#E17055" />
+  </g>
+
+  <!-- Daun Agak Terkulai Cemas -->
+  <path d="M 100 48 Q 90 35 105 28" fill="none" stroke="#2B2D42" stroke-width="7" stroke-linecap="round" />
+  <path d="M 100 48 Q 90 35 105 28" fill="none" stroke="#55EFC4" stroke-width="4" stroke-linecap="round" />
+  <path d="M 100 50 C 72 45 60 62 65 72 C 75 66 88 64 100 64 C 112 64 125 66 135 72 C 140 62 122 45 100 50 Z" 
+        fill="#55EFC4" stroke="#2B2D42" stroke-width="4" stroke-linejoin="round" />
+
+  <!-- Keringat Dingin Cemas -->
+  <path d="M 52 85 C 50 80 57 75 58 70 C 62 76 65 83 60 88 C 56 92 50 90 52 85 Z" fill="#74B9FF" stroke="#2B2D42" stroke-width="2" />
+
+  <!-- Alis Khawatir -->
+  <path d="M 66 94 Q 78 88 88 95" fill="none" stroke="#2B2D42" stroke-width="3.5" stroke-linecap="round" />
+  <path d="M 112 95 Q 122 88 134 94" fill="none" stroke="#2B2D42" stroke-width="3.5" stroke-linecap="round" />
+
+  <!-- Mata Berkaca-kaca Sedih / Khawatir -->
+  <ellipse cx="78" cy="112" rx="9" ry="11" fill="#2B2D42" />
+  <circle cx="75" cy="108" r="4" fill="#FFFFFF" />
+  <circle cx="81" cy="116" r="2" fill="#FFFFFF" />
+
+  <ellipse cx="122" cy="112" rx="9" ry="11" fill="#2B2D42" />
+  <circle cx="119" cy="108" r="4" fill="#FFFFFF" />
+  <circle cx="125" cy="116" r="2" fill="#FFFFFF" />
+
+  <!-- Mulut Khawatir Melengkung ke Bawah -->
+  <path d="M 88 135 Q 100 125 112 135" fill="none" stroke="#2B2D42" stroke-width="4" stroke-linecap="round" />
+
+  <!-- Tangan Memegang Pipi (Gemas Cemas) -->
+  <circle cx="45" cy="122" r="11" fill="#FF6B6B" stroke="#2B2D42" stroke-width="3" />
+  <circle cx="155" cy="122" r="11" fill="#FF6B6B" stroke="#2B2D42" stroke-width="3" />
+
+  <!-- Kaki Mini -->
+  <ellipse cx="80" cy="182" rx="14" ry="7" fill="#55EFC4" stroke="#2B2D42" stroke-width="3" />
+  <ellipse cx="120" cy="182" rx="14" ry="7" fill="#55EFC4" stroke="#2B2D42" stroke-width="3" />
+</svg>

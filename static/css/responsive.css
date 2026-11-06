@@ -1,0 +1,277 @@
+/* ==========================================================================
+   TOMATOCARE AI - RESPONSIVE & MOBILE-FIRST OPTIMIZATION
+   Optimized for Android Chrome, iOS Safari, and Desktop / Laptop
+   ========================================================================== */
+
+/* ---------------- TABLET & MOBILE BREAKPOINT (< 992px) ---------------- */
+@media (max-width: 991.98px) {
+  :root {
+    --sidebar-width: 0px;
+    --bottom-nav-height: 70px;
+    --header-height: 60px;
+  }
+
+  /* Sembunyikan Sidebar Desktop */
+  .sidebar {
+    display: none;
+  }
+
+  /* Sesuaikan Kontainer Utama */
+  .main-wrapper {
+    margin-left: 0;
+    max-width: 100vw;
+    padding-bottom: calc(var(--bottom-nav-height) + 1.5rem); /* Space for bottom nav */
+  }
+
+  /* Tampilkan Top Navbar Mobile */
+  .top-navbar-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1.25rem;
+    background: #FFFFFF;
+    border-bottom: var(--border-solid);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 0 var(--color-navy);
+  }
+
+  .mobile-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .mobile-brand-icon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .mobile-brand h2 {
+    font-size: 1.2rem;
+    color: var(--color-tomato);
+    line-height: 1;
+  }
+
+  .mobile-brand span {
+    font-size: 0.7rem;
+    color: var(--color-leaf-dark);
+    font-weight: 700;
+  }
+
+  .mobile-header-status {
+    display: flex;
+    align-items: center;
+  }
+
+  /* Tampilkan Bottom Navigation Bar Mobile */
+  .bottom-nav-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--bottom-nav-height);
+    background: #FFFFFF;
+    border-top: var(--border-solid);
+    z-index: 1000;
+    padding: 0.35rem 0.5rem;
+    box-shadow: 0 -4px 0 rgba(43, 45, 66, 0.08);
+  }
+
+  .bottom-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.2rem;
+    color: var(--color-navy-muted);
+    font-weight: 700;
+    font-size: 0.72rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: var(--radius-sm);
+    min-width: 58px;
+    min-height: 54px; /* Nyaman disentuh jari */
+    transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+    user-select: none;
+  }
+
+  /* Wadah Ikon Mobile Rounded Square */
+  .bottom-nav-item .nav-icon-box {
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    border: 2px solid var(--color-navy);
+    box-shadow: 1.5px 1.5px 0px var(--color-navy);
+  }
+
+  .bottom-nav-item .nav-icon-box .lucide-icon {
+    width: 19px;
+    height: 19px;
+    stroke-width: 2.3;
+  }
+
+  .bottom-nav-item .b-nav-label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-navy-muted);
+    font-family: var(--font-heading);
+    letter-spacing: -0.2px;
+    transition: color 0.15s ease;
+  }
+
+  /* Menu Aktif di HP Android */
+  .bottom-nav-item.active {
+    color: var(--color-tomato);
+  }
+
+  .bottom-nav-item.active .nav-icon-box {
+    background-color: var(--color-tomato);
+    border: 2px solid var(--color-navy);
+    box-shadow: 2px 2px 0px var(--color-navy);
+    color: #FFFFFF;
+    transform: translateY(-2px) scale(1.06);
+  }
+
+  .bottom-nav-item.active .nav-icon-box .lucide-icon {
+    stroke: #FFFFFF;
+    filter: drop-shadow(1px 1px 0px rgba(43, 45, 66, 0.4));
+  }
+
+  .bottom-nav-item.active .b-nav-label {
+    color: var(--color-tomato);
+    font-weight: 700;
+  }
+
+  .bottom-nav-item:active {
+    transform: scale(0.92);
+  }
+
+  /* Padding Konten */
+  .content-container {
+    padding: 1.25rem 1rem;
+  }
+
+  /* Hero Section Mobile */
+  .hero-box {
+    flex-direction: column-reverse;
+    padding: 1.75rem 1.25rem;
+    gap: 1.25rem;
+    text-align: center;
+  }
+
+  .hero-box::after {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 1.85rem;
+  }
+
+  .hero-desc {
+    font-size: 0.98rem;
+    margin: 0 auto 1.5rem auto;
+  }
+
+  .hero-actions {
+    justify-content: center;
+  }
+
+  .hero-mascot {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+  }
+
+  /* Preview Grid & Diagnosis Stacking */
+  .preview-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .image-display-box img {
+    max-height: 360px;
+  }
+
+  /* Camera Viewport Mobile */
+  .camera-viewport {
+    height: 380px;
+    max-width: 100%;
+  }
+
+  .camera-controls-bar {
+    gap: 0.65rem;
+  }
+
+  .camera-controls-bar .btn {
+    flex: 1;
+    min-width: 140px;
+  }
+
+  /* Toast Mobile */
+  .toast-container {
+    bottom: calc(var(--bottom-nav-height) + 1rem);
+    right: 1rem;
+    left: 1rem;
+  }
+}
+
+/* ---------------- SMALL PHONES BREAKPOINT (< 480px) ---------------- */
+@media (max-width: 479.98px) {
+  html {
+    font-size: 15px;
+  }
+
+  .hero-title {
+    font-size: 1.6rem;
+  }
+
+  .btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.95rem;
+  }
+
+  .upload-dropzone {
+    padding: 2rem 1rem;
+  }
+
+  .upload-mascot {
+    width: 90px;
+    height: 90px;
+  }
+
+  .mobile-upload-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .mobile-upload-buttons .btn {
+    width: 100%;
+  }
+
+  .camera-viewport {
+    height: 320px;
+  }
+
+  .encyclopedia-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------- LARGE SCREENS / DESKTOP (>= 1200px) ---------------- */
+@media (min-width: 1200px) {
+  .content-container {
+    padding: 2.5rem 3rem;
+  }
+
+  .hero-title {
+    font-size: 2.85rem;
+  }
+}
