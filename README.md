@@ -22,6 +22,30 @@ Proyek ini memanfaatkan model deteksi objek untuk mengenali gejala penyakit pada
 - **HTML, CSS, JavaScript** — Teknologi antarmuka web.
 - **OpenCV** — Pengolahan gambar dan kamera (jika digunakan dalam implementasi).
 
+
+## 🍃 Kelas Deteksi
+
+TomatoCare AI memiliki basis pengetahuan untuk 9 kelas kondisi daun tomat:
+
+1. Early Blight
+2. Healthy
+3. Late Blight
+4. Leaf Miner
+5. Leaf Mold
+6. Mosaic Virus
+7. Septoria
+8. Spider Mites
+9. Yellow Leaf Curl Virus
+
+Setiap kelas dilengkapi informasi deskriptif,
+gejala visual, penyebab, tingkat keparahan,
+penanganan, dan langkah pencegahan.
+
+Informasi disediakan sebagai panduan edukasi
+dan observasi awal, bukan pengganti diagnosis
+oleh tenaga ahli pertanian.
+
+
 ## 📁 Struktur Proyek
 
 ```text
